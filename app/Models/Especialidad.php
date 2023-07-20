@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Doctor extends Authenticatable
+class Especialidad extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,12 +17,15 @@ class Doctor extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $table = 'doctor';
-    protected $primaryKey = 'id_doctor';
+    const ENDOCRINOLOGIA = 1;
+    const GASTROENTEROLOGIA = 2;
+    const MEDICINA_GENERAL = 3;
+    const GINECOLOGIA = 4;
+
+    protected $table = 'especialidad';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'id_especialidad',
-        'nombre_doc',
-        'apellido_doc',
+        'descripcion',
         'created_at',
         'updated_at',
     ];

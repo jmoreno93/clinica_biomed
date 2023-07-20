@@ -19,5 +19,7 @@ Route::get('/', function () {
 Route::group(['namespace' => 'App\Http\Controllers', 'as' => 'web.'], function () {
     Route::get('/paciente', 'PacienteController@index');
     Route::post('/paciente', 'PacienteController@save');
+
+    Route::get('/doctor', 'DoctorController@index');
 });
 

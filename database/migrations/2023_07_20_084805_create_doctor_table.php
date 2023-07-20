@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('doctor', function (Blueprint $table) {
             $table->id('id_doctor')->autoIncrement()->nullable(false);
+            $table->unsignedBigInteger('id_especialidad')->nullable(false);
             $table->string('nombre_doc', 60)->nullable(false);
             $table->string('apellido_doc', 70)->nullable(false);
-            $table->string('especialidad', 50)->nullable();
             $table->timestamps();
+            $table->foreign('id_especialidad')
+                ->references('id')
+                ->on('especialidad')
+                ->onDelete('cascade');
         });
     }
 

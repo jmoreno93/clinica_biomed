@@ -35,7 +35,7 @@
                     <a class="nav-link" href="#">Especialidades<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Doctores.php">Médicos<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/doctor">Médicos<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
