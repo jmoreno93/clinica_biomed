@@ -43,8 +43,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/paciente">Pacientes</a>
-                        <a class="dropdown-item" href="Diagnostico.php">Diagnóstico</a>
-                        <a class="dropdown-item" href="resultado.php">Resultado Pacientes</a>
+                        <a class="dropdown-item" href="/diagnostico">Diagnóstico</a>
+                        <a class="dropdown-item" href="/resultado">Resultado Pacientes</a>
                         <a class="dropdown-item" href="/cita">Separar Cita</a>
                     </div>
                 </l

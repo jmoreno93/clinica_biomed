@@ -14,7 +14,7 @@
                             <select class="form-control" name="id_cita" id="id_cita">
                                 <option value="null" selected>Seleccione</option>
                                 @foreach($cita as $value)
-                                    <option value="{{ $value->id }}">Cita: {{ str_pad($value->id_cita, 5, '0', STR_PAD_LEFT) }} - {{ $value->nombre_pac }} {{ $value->apellido_pac }}</option>
+                                    <option value="{{ $value->id_cita }}">Cita: {{ str_pad($value->id_cita, 5, '0', STR_PAD_LEFT) }} - {{ $value->nombre_pac }} {{ $value->apellido_pac }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -23,22 +23,12 @@
                             <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <select class="form-control" name="especialidad" id="especialidad">
-                                <option value="null" selected>Seleccione</option>
-                                @foreach($especialidad as $value)
-                                    <option value="{{ $value->id }}">{{ $value->descripcion }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
                 </div>
                 <input type="submit" value="Guardar">
                 <input type="reset" value="Limpiar">
             </form>
             @if($http == 200)
-                @if(!is_null($doctor))
+                @if(!is_null($diagnostico))
                     <div class="alert alert-success" role="alert">
                         El registro fue creado
                     </div>

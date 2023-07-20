@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use App\Models\Especialidad;
-use App\Models\Paciente;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
