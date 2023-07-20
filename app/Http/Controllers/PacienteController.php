@@ -7,13 +7,21 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
-    public function index()
+    public function index(Paciente $paciente = null, int $http = 200)
     {
-        return view('menu.paciente');
+        return view('menu.paciente', [
+            'paciente' => $paciente,
+            'http' => $http,
+        ]);
     }
     public function save(Request $request)
     {
-        Paciente::create([
+        $check = Paciente::find($request['dni']);
+        if(!is_null($check))
+        {
+            return $this->index($check, 422);
+        }
+        $paciente = Paciente::create([
             'dni' => $request['dni'],
             'nombre_pac' => $request['nombre_pac'],
             'apellido_pac' => $request['apellido_pac'],
@@ -22,6 +30,6 @@ class PacienteController extends Controller
             'direccion' => $request['direccion'],
             'telefono' => $request['telefono'],
         ]);
-        return $this->index();
+        return $this->index($paciente);
     }
 }
