@@ -18,4 +18,13 @@ class DoctorController extends Controller
             'especialidad' => $especialidad,
         ]);
     }
+    public function save(Request $request)
+    {
+        $doctor = Doctor::create([
+            'nombre_doc' => $request['nombre_doc'],
+            'apellido_doc' => $request['apellido_doc'],
+            'id_especialidad' => $request['especialidad'],
+        ]);
+        return $this->index($doctor);
+    }
 }

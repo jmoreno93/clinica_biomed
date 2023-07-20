@@ -45,7 +45,7 @@
                         <a class="dropdown-item" href="/paciente">Pacientes</a>
                         <a class="dropdown-item" href="Diagnostico.php">Diagnóstico</a>
                         <a class="dropdown-item" href="resultado.php">Resultado Pacientes</a>
-                        <a class="dropdown-item" href="cita.php">Separar Cita</a>
+                        <a class="dropdown-item" href="/cita">Separar Cita</a>
                     </div>
                 </l
             </ul>

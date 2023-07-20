@@ -5,7 +5,7 @@
             <h1 class="titulo">REGISTRO DE DOCTOR</h1>
         </div>
         <div style="padding: 20px">
-            <form id="frmPaciente" name="frmPaciente" method="POST">
+            <form id="frmDoctor" name="frmDoctor" method="POST">
                 @csrf
                 <div class="form-group">
                     <div class="row">
@@ -46,20 +46,21 @@
         </div>
     </div>
     <script>
-        $('#frmPaciente').submit(function (){
+        $('#frmDoctor').submit(function (){
+            var especialidad = $('#especialidad').val();
+            if(especialidad == null)
+            {
+                return false;
+            }
             var formData = {
                 _token: "{{ csrf_token() }}",
-                dni: $('#dni').val(),
-                nombre_pac: $('#nombre_pac').val(),
-                apellido_pac: $('#apellido_pac').val(),
-                sexo: $("input[name='sexo']").val(),
-                direccion: $('#direccion').val(),
-                telefono: $('#telefono').val(),
-                fecha_nac: $('#fecha_nac').val(),
+                nombre_doc: $('#nombre_doc').val(),
+                apellido_doc: $('#apellido_doc').val(),
+                especialidad: especialidad,
             };
             $.ajax({
                 type: "POST",
-                url: '/paciente',
+                url: '/doctor',
                 data: formData,
                 success: function(data)
                 {
