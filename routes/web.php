@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['namespace' => 'App\Http\Controllers', 'as' => 'web.'], function () {
+    Route::get('/paciente', 'PacienteController@index');
+    Route::post('/paciente', 'PacienteController@save');
+});
+

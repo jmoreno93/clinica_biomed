@@ -1,0 +1,67 @@
+body{
+	background:#E4E4E4;
+}
+.cont_form{
+	background-color:#EAEFF0;
+	margin-left: 350px;
+	margin-right: 350px;
+	padding-bottom: 20px;
+	padding-top: 0px;
+	border-radius: 5px;
+	box-shadow: 2px 1px 20px 2px rgba(0, 112, 137, 0.20	);
+}
+.der{
+	text-align: left;
+}
+
+.cont_titulo{
+	
+	background-color:#76D0E5;
+}
+
+h1{
+	font-family: 'Cinzel', serif;
+	font-family: 'Lexend', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Nunito', sans-serif;
+	font-family: 'Staatliches', cursive;
+	font-family: 'Work Sans', sans-serif;
+	text-align: left;
+	color: #FBFEFF;
+	font-size: 20px;
+	
+	padding-top: 25px;
+	padding-bottom: 25px;
+	margin-left: 35px;
+}
+
+form{
+	text-align:left;	
+}
+td{
+	
+
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+label{
+	font-family: 'Alegreya Sans', sans-serif;
+	font-family: 'Cinzel', serif;
+	font-family: 'Lexend', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Nunito', sans-serif;
+	font-family: 'Staatliches', cursive;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 18px;
+}
+input{
+	font-family: 'Alegreya Sans', sans-serif;
+	font-family: 'Cinzel', serif;
+	font-family: 'Lexend', sans-serif;
+	font-family: 'Montserrat', sans-serif;
+	font-family: 'Nunito', sans-serif;
+	font-family: 'Staatliches', cursive;
+	font-family: 'Work Sans', sans-serif;
+	font-size: 17px;
+}
