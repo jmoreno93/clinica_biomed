@@ -2,6 +2,31 @@
 @section('body')
     <div class="cont_form">
         <div class="cont_titulo" align="center">
+            <h1 class="titulo">Pacientes</h1>
+        </div>
+        <div style="padding: 20px">
+            <table id="tblList" class="table">
+                <thead>
+                <tr>
+                    <th>DNI</th>
+                    <th>Paciente</th>
+                    <th>Fecha de nacimiento</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($list as $value)
+                    <tr>
+                        <td>{{ $value->dni }}</td>
+                        <td>{{ $value->nombre_pac }} {{ $value->apellido_pac }}</td>
+                        <td>{{ date_format(date_create($value->fecha_nac), 'd/m/Y') }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="cont_form">
+        <div class="cont_titulo" align="center">
             <h1 class="titulo">REGISTRO DE PACIENTE</h1>
         </div>
         <div style="padding: 20px">
@@ -25,7 +50,7 @@
                         </div>
                         <div class="col">
                             <label for="fecha_nac">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" required name="fecha_nac" id="fecha_nac">
+                            <input type="date" data-date-format="DD/MM/YYYY" class="form-control" required name="fecha_nac" id="fecha_nac">
                         </div>
                     </div>
                     <div class="row">
@@ -57,22 +82,14 @@
                     </div>
                 </div>
                 <input type="submit" value="Guardar">
-                <input type="reset" value="Limpiar">
+                <input id="btnLimpiar" type="reset" value="Limpiar">
             </form>
-            @if($http == 200)
-                @if(!is_null($paciente))
-                    <div class="alert alert-success" role="alert">
-                        El registro fue creado
-                    </div>
-                @endif
-            @else
-                <div class="alert alert-danger" role="alert">
-                    El registro ya existe
-                </div>
-            @endif
         </div>
     </div>
+@endsection
+@section('script')
     <script>
+        let table = new DataTable('#tblList');
         $('#frmPaciente').submit(function (){
             var formData = {
                 _token: "{{ csrf_token() }}",
@@ -90,11 +107,21 @@
                 data: formData,
                 success: function(data)
                 {
-                    alert(data);
+                    let table = new DataTable('#tblList');
+                    table.row.add({
+                        0: data.data.dni,
+                        1: data.data.nombre_pac + ' ' + data.data.apellido_pac,
+                        2: data.data.fecha_nac,
+                    }).draw();
+                    modal('Se ha registrado correctamente');
+                    $('#btnLimpiar').click();
+                },
+                error: function(data)
+                {
+                    modal(data.responseJSON.message);
                 },
             });
             return false;
         });
-
     </script>
 @endsection

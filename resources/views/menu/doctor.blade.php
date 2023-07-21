@@ -2,6 +2,29 @@
 @section('body')
     <div class="cont_form">
         <div class="cont_titulo" align="center">
+            <h1 class="titulo">Doctores</h1>
+        </div>
+        <div style="padding: 20px">
+            <table id="tblList" class="table">
+                <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Especialidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($list as $value)
+                    <tr>
+                        <td>{{ $value->nombre_doc }} {{ $value->apellido_doc }}</td>
+                        <td>{{ $value->especialidad }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="cont_form">
+        <div class="cont_titulo" align="center">
             <h1 class="titulo">REGISTRO DE DOCTOR</h1>
         </div>
         <div style="padding: 20px">
@@ -45,7 +68,10 @@
             @endif
         </div>
     </div>
+@endsection
+@section('script')
     <script>
+        let table = new DataTable('#tblList');
         $('#frmDoctor').submit(function (){
             var especialidad = $('#especialidad').val();
             if(especialidad == null)
@@ -64,11 +90,21 @@
                 data: formData,
                 success: function(data)
                 {
-                    alert(data);
+                    let table = new DataTable('#tblList');
+                    table.row.add({
+                        0: data.data.nombre_doc + ' ' + data.data.apellido_doc,
+                        1: data.data.especialidad,
+                    }).draw();
+                    modal('Se ha registrado correctamente');
+                    $('#btnLimpiar').click();
+                },
+                error: function(data)
+                {
+                    modal(data.responseJSON.message);
                 },
             });
             return false;
         });
-
     </script>
 @endsection
+

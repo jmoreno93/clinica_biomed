@@ -55,25 +55,4 @@
             @endif
         </div>
     </div>
-    <script>
-        $('#frmCita').submit(function (){
-            var formData = {
-                _token: "{{ csrf_token() }}",
-                dni: $('#dni').val(),
-                id_doctor: $('#id_doctor').val(),
-                fecha_cita: $('#fecha_cita').val(),
-                hora_cita: $('#hora_cita').val(),
-            };
-            $.ajax({
-                type: "POST",
-                url: '/cita',
-                data: formData,
-                success: function(data)
-                {
-                    alert(data);
-                },
-            });
-            return false;
-        });
-    </script>
 @endsection

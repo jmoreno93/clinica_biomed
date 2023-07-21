@@ -26,6 +26,9 @@ Route::group(['namespace' => 'App\Http\Controllers', 'as' => 'web.'], function (
     Route::get('/cita', 'CitaController@index');
     Route::post('/cita', 'CitaController@save');
 
+    Route::get('/especialidad', 'EspecialidadController@index');
+    Route::post('/especialidad', 'EspecialidadController@save');
+
     Route::get('/diagnostico', 'DiagnosticoController@index');
     Route::post('/diagnostico', 'DiagnosticoController@save');
 

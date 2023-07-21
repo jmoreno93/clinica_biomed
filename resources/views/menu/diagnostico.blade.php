@@ -40,30 +40,4 @@
             @endif
         </div>
     </div>
-    <script>
-        $('#frmDoctor').submit(function (){
-            var especialidad = $('#especialidad').val();
-            if(especialidad == null)
-            {
-                return false;
-            }
-            var formData = {
-                _token: "{{ csrf_token() }}",
-                nombre_doc: $('#nombre_doc').val(),
-                apellido_doc: $('#apellido_doc').val(),
-                especialidad: especialidad,
-            };
-            $.ajax({
-                type: "POST",
-                url: '/doctor',
-                data: formData,
-                success: function(data)
-                {
-                    alert(data);
-                },
-            });
-            return false;
-        });
-
-    </script>
 @endsection
