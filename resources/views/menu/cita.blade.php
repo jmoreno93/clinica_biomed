@@ -40,6 +40,7 @@
                     </div>
                 </div>
                 <input type="submit" value="Guardar">
+
                 <input type="reset" value="Limpiar">
             </form>
             @if($http == 200)
