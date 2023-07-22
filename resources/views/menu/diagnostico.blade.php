@@ -24,8 +24,8 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" value="Guardar">
-                <input id="btnLimpiar" type="reset" value="Limpiar">
+                <input class="btn btn-primary" type="submit" value="Guardar">
+                <input class="btn btn-secondary" id="btnLimpiar" type="reset" value="Limpiar">
             </form>
             @if($http == 200)
                 @if(!is_null($diagnostico))

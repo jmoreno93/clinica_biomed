@@ -23,7 +23,7 @@
 <!-- Header -->
 <nav id="header" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="Menu.html">
+        <a class="navbar-brand" href="/">
             <img src="img/logo.png" width="200px" height="100px" alt="#">
         </a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
