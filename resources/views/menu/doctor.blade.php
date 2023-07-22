@@ -74,8 +74,9 @@
         let table = new DataTable('#tblList');
         $('#frmDoctor').submit(function (){
             var especialidad = $('#especialidad').val();
-            if(especialidad == null)
+            if(especialidad == 'null')
             {
+                modal('Debe seleccionar una especialidad')
                 return false;
             }
             var formData = {

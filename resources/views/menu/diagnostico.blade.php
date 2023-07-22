@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <input type="submit" value="Guardar">
-                <input type="reset" value="Limpiar">
+                <input id="btnLimpiar" type="reset" value="Limpiar">
             </form>
             @if($http == 200)
                 @if(!is_null($diagnostico))
@@ -40,4 +40,37 @@
             @endif
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        $('#frmDiagnostico').submit(function (){
+            var cita = $('#id_cita').val();
+            if(cita == 'null')
+            {
+                modal('Debe seleccionar una cita');
+                return false;
+            }
+            var formData = {
+                _token: "{{ csrf_token() }}",
+                nombre_doc: $('#nombre_doc').val(),
+                apellido_doc: $('#apellido_doc').val(),
+                especialidad: especialidad,
+            };
+            $.ajax({
+                type: "POST",
+                url: '/doctor',
+                data: formData,
+                success: function(data)
+                {
+                    modal('Se ha registrado correctamente');
+                    $('#btnLimpiar').click();
+                },
+                error: function(data)
+                {
+                    modal(data.responseJSON.message);
+                },
+            });
+            return false;
+        });
+    </script>
 @endsection

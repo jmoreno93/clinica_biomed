@@ -5,7 +5,7 @@
             <h1 class="titulo">REGISTRO DE PACIENTE</h1>
         </div>
         <div style="padding: 20px">
-            <table class="table">
+            <table id="tblList" class="table">
                 <thead>
                 <tr>
                     <th>Cita</th>
@@ -27,29 +27,9 @@
             </table>
         </div>
     </div>
+@endsection
+@section('script')
     <script>
-        $('#frmPaciente').submit(function (){
-            var formData = {
-                _token: "{{ csrf_token() }}",
-                dni: $('#dni').val(),
-                nombre_pac: $('#nombre_pac').val(),
-                apellido_pac: $('#apellido_pac').val(),
-                sexo: $("input[name='sexo']").val(),
-                direccion: $('#direccion').val(),
-                telefono: $('#telefono').val(),
-                fecha_nac: $('#fecha_nac').val(),
-            };
-            $.ajax({
-                type: "POST",
-                url: '/paciente',
-                data: formData,
-                success: function(data)
-                {
-                    alert(data);
-                },
-            });
-            return false;
-        });
-
+        var table = $('#tblList').DataTable();
     </script>
 @endsection
